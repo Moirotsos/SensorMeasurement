@@ -1,0 +1,22 @@
+services:
+  db:
+    container_name: db
+    image: postgres
+    environment:
+      - POSTGRES_DB=intrasoft
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+
+  spring-app:
+    build:
+      context: .
+    container_name: sensor_measurement
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/intrasoft
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
