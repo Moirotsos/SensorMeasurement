@@ -138,5 +138,20 @@ class MeasurementServiceTest {
     }
 
 
-
+    @Test
+    void calculateMeanvalue() {
+        List<Long> values = new ArrayList<Long>();
+        values.add(32L);
+        values.add(43L);
+        values.add(70L);
+        values.add(20L);
+        values.add(18L);
+        values.add(54L);
+        values.add(76L);
+        values.add(31L);
+        values.add(21L);
+        values.add(43L);
+        values.add(56L);
+        System.out.println("Mean value is: " + this.measurementService.calculateMeanvalue(values));
+    }
 }

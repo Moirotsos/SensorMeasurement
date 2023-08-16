@@ -16,4 +16,5 @@ public interface MeasurementService {
     List<Long> findReadingValuesBySensorType(List<Measurement> measurements);
     List<Long> get10MaxValues(List<Long> values);
     List<Long> get10MinValues(List<Long> values);
+    double calculateMeanvalue(List<Long> values);
 }

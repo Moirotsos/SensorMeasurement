@@ -162,4 +162,50 @@ class MeasurementControllerTest {
                 .andReturn();
 
     }
+
+    @Test
+    void get10MaxValuesBySensorType() throws Exception {
+        List <Long> values = List.of(54L);
+        when(measurementService.get10MaxValues(measurementService.findReadingValuesBySensorType(measurementService.findMeasurementBySensorType("Temperature")))).thenReturn(values);
+
+        mockMvc.perform(get("/measurement/maxValue")
+                        .param("type","Temperature"))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("54")))
+                .andDo(print())
+                .andReturn();
+    }
+
+    @Test
+    void get10MinValuesBySensorType() throws Exception {
+        List <Long> values = List.of(54L);
+        when(measurementService.get10MinValues(measurementService.findReadingValuesBySensorType(measurementService.findMeasurementBySensorType("Temperature")))).thenReturn(values);
+
+
+        mockMvc.perform(get("/measurement/minValue")
+                        .param("type","Temperature"))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("54")))
+                .andDo(print())
+                .andReturn();
+    }
+
+    @Test
+    void getMeanValueBySensorType() throws Exception {
+
+        when(measurementService.calculateMeanvalue(measurementService.findReadingValuesBySensorType(measurementService.findMeasurementBySensorType("Temperature")))).thenReturn(54.0);
+
+
+        mockMvc.perform(get("/measurement/meanValue")
+                        .param("type","Temperature")
+                )
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andDo(print())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value("dummy_id"))
+//                .andExpect(MockHttpServletResponse.)
+                .andReturn();
+    }
 }

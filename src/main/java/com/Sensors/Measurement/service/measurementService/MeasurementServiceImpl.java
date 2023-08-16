@@ -76,4 +76,12 @@ public class MeasurementServiceImpl implements MeasurementService{
                 .limit(10)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public double calculateMeanvalue(List<Long> values) {
+
+        double sum = 0.0;
+        for (double value : values) sum += value;
+        return sum / values.size();
+    }
 }

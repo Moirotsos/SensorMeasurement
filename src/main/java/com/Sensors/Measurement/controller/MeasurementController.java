@@ -58,6 +58,14 @@ public class MeasurementController {
     public List<Long> get10MaxValuesBySensorType(@RequestParam("type") String type){
        return measurementService.get10MaxValues(measurementService.findReadingValuesBySensorType(measurementService.findMeasurementBySensorType(type)));
     }
+    @GetMapping("/measurement/minValue")
+    public List<Long> get10MinValuesBySensorType(@RequestParam("type") String type){
+        return measurementService.get10MinValues(measurementService.findReadingValuesBySensorType(measurementService.findMeasurementBySensorType(type)));
+    }
 
+    @GetMapping("/measurement/meanValue")
+    public double getMeanValueBySensorType(@RequestParam("type") String type){
+        return measurementService.calculateMeanvalue(measurementService.findReadingValuesBySensorType(measurementService.findMeasurementBySensorType(type)));
+    }
 
 }
