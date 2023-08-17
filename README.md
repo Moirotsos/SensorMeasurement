@@ -70,4 +70,4 @@ Before you begin, make sure you have the following software installed on your ma
     Docker Compose will start the Spring Boot application and the associated PostgreSQL database container. You can access your app at       'http://localhost:8080'.
 
 # Authors     
-- @[Moirotsos](https://github.com/Moirotsos/SensorProject)
+- @[Moirotsos](https://github.com/Moirotsos/SensorMeasurement.git)
