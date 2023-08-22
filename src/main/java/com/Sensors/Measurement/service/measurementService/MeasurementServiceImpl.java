@@ -84,4 +84,9 @@ public class MeasurementServiceImpl implements MeasurementService{
         for (double value : values) sum += value;
         return sum / values.size();
     }
+
+    @Override
+    public void deleteMeasurementById(Long id) {
+        measurementRepository.deleteById(id);
+    }
 }

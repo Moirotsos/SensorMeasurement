@@ -41,4 +41,11 @@ public class SensorController {
                 return ResponseEntity.status(HttpStatus.OK).body("Sensor modifed successfully");
             }
     }
+    @DeleteMapping("/sensor/delete/{id}")
+    public ResponseEntity deleteSensor(@PathVariable Long id){
+
+            sensorService.deleteById(id);
+            return ResponseEntity.status(HttpStatus.OK).body("Sensor deleted successfully");
+
+    }
 }

@@ -154,4 +154,9 @@ class MeasurementServiceTest {
         values.add(56L);
         System.out.println("Mean value is: " + this.measurementService.calculateMeanvalue(values));
     }
+
+    @Test
+    void deleteMeasurementById() {
+        this.measurementRepository.deleteById(1L);
+     }
 }

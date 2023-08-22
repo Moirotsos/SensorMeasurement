@@ -6,6 +6,7 @@ import com.Sensors.Measurement.entity.Sensor;
 import com.Sensors.Measurement.service.measurementService.MeasurementService;
 import com.Sensors.Measurement.service.sensorService.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -67,5 +68,13 @@ public class MeasurementController {
     public double getMeanValueBySensorType(@RequestParam("type") String type){
         return measurementService.calculateMeanvalue(measurementService.findReadingValuesBySensorType(measurementService.findMeasurementBySensorType(type)));
     }
+
+    @DeleteMapping("/measurement/delete/{id}")
+    public ResponseEntity deleteSensor(@PathVariable Long id){
+            measurementService.deleteMeasurementById(id);
+            return ResponseEntity.status(HttpStatus.OK).body("Measurement deleted successfully");
+
+    }
+
 
 }

@@ -122,4 +122,12 @@ class SensorControllerTest {
                 .andDo(print())
                 .andReturn();
     }
+
+    @Test
+    void deleteSensor() throws Exception {
+        mockMvc.perform(delete("/sensor/delete/1"))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("Sensor deleted successfully")))
+                .andReturn();
+    }
 }

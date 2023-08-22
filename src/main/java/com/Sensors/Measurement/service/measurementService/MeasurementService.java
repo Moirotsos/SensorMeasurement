@@ -17,4 +17,5 @@ public interface MeasurementService {
     List<Long> get10MaxValues(List<Long> values);
     List<Long> get10MinValues(List<Long> values);
     double calculateMeanvalue(List<Long> values);
+    void deleteMeasurementById(Long id);
 }

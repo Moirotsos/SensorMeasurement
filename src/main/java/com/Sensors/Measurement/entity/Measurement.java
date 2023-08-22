@@ -23,13 +23,17 @@ public class Measurement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "sensorId")
     private Sensor sensorId;
+    @JoinColumn(name = "readingType")
     private String readingType;
+    @JoinColumn(name = "readingValue")
     private Long readingValue;
+    @JoinColumn(name = "readingDate")
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern="yyyy-MM-dd")
     private Date readingDate;
+    @JoinColumn(name = "time")
     private Time time;
 
     public Measurement(Sensor sensorId, String readingType, Long readingValue, Date readingDate, Time time) {
