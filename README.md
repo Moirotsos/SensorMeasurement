@@ -9,6 +9,7 @@ Before you begin, make sure you have the following software installed on your ma
 - Java JDK 17: This application is built using Java, so ensure you have Java Development Kit 17 installed. You can download it from the [official OpenJDK website](https://adoptium.net/) or use a package manager compatible with your operating system.
 - Docker 24.0.5: Docker is essential for containerizing your application. Install Docker by following the instructions for your specific platform on the [official Docker website](https://docs.docker.com/get-docker/).
 - Docker Compose 1.29.2: Docker Compose simplifies multi-container application deployment. Install Docker Compose by following the instructions provided in the [official documentation](https://docs.docker.com/compose/install/).
+- PostgreSQL Database (Version 15.4):** This project relies on PostgreSQL as its database management system. If you haven't already installed PostgreSQL version 15.4 or a compatible version, you can download it from the official website: [PostgreSQL Downloads](https://www.postgresql.org/download/)
 
 # Installation
 
